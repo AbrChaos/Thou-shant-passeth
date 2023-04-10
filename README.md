@@ -32,7 +32,8 @@ ps. pie šitā var sanākt mazliet pačakarēties
  
  ## 3. Papildinājumi
  
-     Šobrīd programmas gala izeja ir logs, kas pasaka atpazītās personas vārdu. Izmantojot kkādu arduino library jāaizsūta vārds uz arduino caur serial com. Man liekas, ka arduino galā varētu ielikt lcd displeju, kas parāda vārdu, un kkādu lampiņu, vai pīkstuli, kas norāda, ka atrasta seja.
+     Šobrīd programmas gala izeja ir logs, kas pasaka atpazītās personas vārdu. Izmantojot kkādu arduino library jāaizsūta vārds uz arduino caur serial com. 
+     Man liekas, ka arduino galā varētu ielikt lcd displeju, kas parāda vārdu, un kkādu lampiņu, vai pīkstuli, kas norāda, ka atrasta seja.
      
 
 
