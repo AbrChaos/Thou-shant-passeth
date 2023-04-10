@@ -22,13 +22,14 @@ ps. pie šitā var sanākt mazliet pačakarēties
 
 ## 2. Īss izklāsts
  
- Pirmā programma:
+ Pirmā programma (input_img.py):
        1. Lietotājam palūdz ierakstīt vārdu
        2. Parāda webkameru, un giada kad lietotājs uzspiedīs "q"
        3. Kad nospiests "q", programma parāda uzņemto bildi, un piedāvā izvēlēties uzņemto, vai uzņemt jaunu.
        4. Izvēlēto bildi pārveido uz datamodeli, saglabā, un excelī ieraksta datus.
  
- Otrā programma veic sejas atpazīšanu, un atgriež atpazīto vārdu. Tā izeja ir pagaidu variants. Izeja rāda [], kad nav atrasta neviena seja, un [false], vai [True], šobrīd, lai programma atgrieztu vārdu, vajadzīga tikai viena redzama seja kadrā. 
+ Otrā programma (face_detect.py):
+ veic sejas atpazīšanu, un atgriež atpazīto vārdu. Tā izeja ir pagaidu variants. Izeja rāda [], kad nav atrasta neviena seja, un [false], vai [True], šobrīd, lai programma atgrieztu vārdu, vajadzīga tikai viena redzama seja kadrā. 
  
  ## 3. Papildinājumi
  
