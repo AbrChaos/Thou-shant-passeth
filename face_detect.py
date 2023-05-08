@@ -7,14 +7,15 @@ import pyautogui as pag
 import time
 import serial
 
-
 vid = cv2.VideoCapture(0)
 
 workbook = oxl.load_workbook('Data.xlsx')
 xcl = workbook.get_sheet_by_name('Lapa1')
 Img_number = xcl["E2"].value
 
-arduino = serial.Serial(port='COM4', baudrate=9600, timeout=.1)
+numofrec = [0]*50
+
+arduino = serial.Serial(port='COM6', baudrate=9600, timeout=.1)
 
 
 def write_read(x):
@@ -23,13 +24,14 @@ def write_read(x):
     data = arduino.readline()
     return data
 
-i = 1
+n = 1
 
-while(True):
-    
+while( n == 1):
+  try:    
     ret, new = vid.read()
     cv2.imshow('new', new)
     cv2.waitKey(1)
+    i = 1
 
     while(i <= Img_number):
 
@@ -43,22 +45,22 @@ while(True):
 
         result = fr.compare_faces(img_encoding,face_to_compare)
     
-        print("Faces match?: ", result )
 
-        if(result == [True]):
-            print(xcl["F"+str(i+4)].value)
-            #pag.alert(text=xcl["F"+str(i+4)].value, title='', button='OK')
-            write_read(xcl["F"+str(i+4)].value)
-            time.sleep(2)
+        for x in result:
            
-            
+            if(x == [True]):
+                print(xcl["F"+str(i+4)].value)
+                write_read(xcl["F"+str(i+4)].value)
+                time.sleep(2)
+                print("Faces match?: ", x)
+                numofrec[i] = numofrec[i] + 1
+                xcl["I"+(str(i+4))].value = numofrec[i]
+                break
 
+        i = i + 1
 
-        
-        i = i+1
+  except KeyboardInterrupt:
+    pass
+    n = 0
 
-    if(result == True): break
-    i = 1
-
-print("Faces match?: ", result )
-
+workbook.save("Data.xlsx")
